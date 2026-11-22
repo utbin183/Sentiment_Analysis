@@ -1,11 +1,3 @@
-"""Step 5.2 — responsive, robust, inference-only Streamlit UI for restaurant ABSA.
-
-Uses the **existing** src/absa_pipeline.py without modifying checkpoints.
-The pipeline contains one ATE model and one ATSC model and is cached as one
-resource across Streamlit reruns. No training, test evaluation, or disk writes.
-
-Run from the project root: streamlit run app.py
-"""
 from __future__ import annotations
 
 import html
@@ -19,6 +11,10 @@ from typing import Any, Mapping, Sequence
 # Set this before importing project modules / Transformers (Windows Keras 3).
 os.environ["USE_TF"] = "0"
 os.environ["USE_TORCH"] = "1"
+
+
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
