@@ -1,0 +1,15 @@
+# Data preprocessing and evaluation
+numpy>=1.26,<2
+pyarrow>=21,<26
+datasets>=4.8,<5
+
+# DistilBERT, tokenization and model loading
+transformers>=4.57,<5
+safetensors>=0.4,<1
+
+# Model training and inference
+torch>=2.5,<3
+accelerate>=0.26,<2
+
+# Streamlit web application
+streamlit>=1.39,<2

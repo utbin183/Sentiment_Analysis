@@ -1,0 +1,17 @@
+{
+  "review": "The food was delicious, but the service was terrible.",
+  "aspects": [
+    {
+      "text": "food",
+      "start": 4,
+      "end": 8,
+      "confidence": 0.998326
+    },
+    {
+      "text": "service",
+      "start": 32,
+      "end": 39,
+      "confidence": 0.998984
+    }
+  ]
+}

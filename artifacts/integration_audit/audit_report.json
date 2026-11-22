@@ -1,0 +1,309 @@
+{
+  "phase": "4.1",
+  "status": "AUDIT READY WITH RISKS",
+  "audit_only": true,
+  "pipeline_created": false,
+  "training_performed": false,
+  "test_evaluation_performed": false,
+  "weights_modified": false,
+  "coverage": {
+    "static_interfaces_and_synthetic_offsets": true,
+    "saved_model_metadata": true,
+    "local_tokenizers_checked": true,
+    "selected_checkpoint_sha256_verified": true,
+    "both_models_loaded_and_independently_smoke_tested": true,
+    "pipeline_end_to_end_tested": false
+  },
+  "checks": {
+    "interfaces": {
+      "status": "PASS",
+      "ate_python_api": "AspectExtractor.extract(review) -> list[aspect]",
+      "atsc_python_api": "ATSCClassifier.predict(review, aspect, start, end) -> result",
+      "ate_output_schema": [
+        "text",
+        "start",
+        "end",
+        "confidence"
+      ],
+      "atsc_required_input": [
+        "review",
+        "aspect",
+        "start",
+        "end"
+      ],
+      "offset_unit": "zero-based Python Unicode character indexes; half-open [start,end)",
+      "marker_helper_identity": true,
+      "ate_bio_classes": {
+        "0": "O",
+        "1": "B-Term",
+        "2": "I-Term"
+      },
+      "atsc_sentiment_classes": {
+        "0": "negative",
+        "1": "neutral",
+        "2": "positive"
+      },
+      "shared_base_backbone": "distilbert-base-uncased",
+      "heads": {
+        "ate": "token_classification",
+        "atsc": "sequence_classification"
+      },
+      "model_loading": {
+        "ate": "load_extractor() once",
+        "atsc": "load_classifier() once"
+      },
+      "inference_uses_test_or_training_data": false
+    },
+    "text_and_offsets": {
+      "status": "PASS",
+      "synthetic_cases": 9,
+      "repeated_occurrences_distinguished": true,
+      "raw_text_differs_from_space_joined_ate_tokens_in_cases": 9,
+      "cases": [
+        {
+          "case": "punctuation",
+          "aspect": "food",
+          "start": 4,
+          "end": 8,
+          "ate_word_count": 11,
+          "marked_text": "The [unused1] food [unused2] was delicious, but the service was terrible."
+        },
+        {
+          "case": "punctuation_second",
+          "aspect": "service",
+          "start": 32,
+          "end": 39,
+          "ate_word_count": 11,
+          "marked_text": "The food was delicious, but the [unused1] service [unused2] was terrible."
+        },
+        {
+          "case": "repeated_first",
+          "aspect": "service",
+          "start": 4,
+          "end": 11,
+          "ate_word_count": 12,
+          "marked_text": "The [unused1] service [unused2] was great, but later the service was terrible."
+        },
+        {
+          "case": "repeated_last",
+          "aspect": "service",
+          "start": 37,
+          "end": 44,
+          "ate_word_count": 12,
+          "marked_text": "The service was great, but later the [unused1] service [unused2] was terrible."
+        },
+        {
+          "case": "multi_word",
+          "aspect": "dining room",
+          "start": 4,
+          "end": 15,
+          "ate_word_count": 6,
+          "marked_text": "The [unused1] dining room [unused2] was pleasant."
+        },
+        {
+          "case": "unicode",
+          "aspect": "food",
+          "start": 5,
+          "end": 9,
+          "ate_word_count": 5,
+          "marked_text": "Café [unused1] food [unused2] was excellent."
+        },
+        {
+          "case": "extra_whitespace",
+          "aspect": "food",
+          "start": 6,
+          "end": 10,
+          "ate_word_count": 5,
+          "marked_text": "  The [unused1] food [unused2] was great.  "
+        },
+        {
+          "case": "newline",
+          "aspect": "food",
+          "start": 4,
+          "end": 8,
+          "ate_word_count": 5,
+          "marked_text": "The [unused1] food [unused2] was excellent."
+        },
+        {
+          "case": "apostrophe",
+          "aspect": "food",
+          "start": 7,
+          "end": 11,
+          "ate_word_count": 5,
+          "marked_text": "Chef's [unused1] food [unused2] was great."
+        }
+      ]
+    },
+    "saved_artifacts": {
+      "status": "PASS",
+      "ate_model_dir": "artifacts\\ate_training\\best_model",
+      "atsc_model_dir": "artifacts\\atsc_training\\best_model",
+      "ate_head": "token_classification",
+      "atsc_head": "sequence_classification",
+      "shared_vocab_size": 30522,
+      "atsc_max_length": 128,
+      "best_checkpoint": "checkpoint-1616",
+      "checkpoint_selected_by": "validation_macro_f1",
+      "test_used_for_selection": false,
+      "weights_loaded": false
+    },
+    "checkpoint_integrity": {
+      "status": "PASS",
+      "checkpoint": "checkpoint-1616",
+      "identical": true,
+      "sha256": "7be792d95e74916d6825487943921fcba0e2ed1946ba1898b6c50622e8a3c3ca",
+      "bytes": 267835644,
+      "weights_modified": false
+    },
+    "tokenizers": {
+      "status": "PASS",
+      "ate_tokenizer": "fast pretrained DistilBERT",
+      "atsc_tokenizer": "fast DistilBERT with registered [unused] markers",
+      "model_weights_loaded": false,
+      "scenarios": [
+        {
+          "case": "punctuation",
+          "ate_tokens": 13,
+          "atsc_tokens": 17,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "punctuation_second",
+          "ate_tokens": 13,
+          "atsc_tokens": 17,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "repeated_first",
+          "ate_tokens": 14,
+          "atsc_tokens": 18,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "repeated_last",
+          "ate_tokens": 14,
+          "atsc_tokens": 18,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "multi_word",
+          "ate_tokens": 8,
+          "atsc_tokens": 13,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "unicode",
+          "ate_tokens": 7,
+          "atsc_tokens": 11,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "extra_whitespace",
+          "ate_tokens": 7,
+          "atsc_tokens": 11,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "newline",
+          "ate_tokens": 7,
+          "atsc_tokens": 11,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "apostrophe",
+          "ate_tokens": 9,
+          "atsc_tokens": 13,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": true
+        },
+        {
+          "case": "boundary_stress",
+          "ate_tokens": 126,
+          "atsc_tokens": 130,
+          "ate_within_128": true,
+          "atsc_within_preprocessing_limit": false
+        }
+      ],
+      "budget_divergence_cases": [
+        "boundary_stress"
+      ]
+    },
+    "model_smoke": {
+      "status": "PASS",
+      "ate_independent_inference": {
+        "status": "PASS",
+        "aspect_count": 2,
+        "verified_spans": [
+          {
+            "text": "food",
+            "start": 4,
+            "end": 8
+          },
+          {
+            "text": "service",
+            "start": 32,
+            "end": 39
+          }
+        ]
+      },
+      "atsc_independent_manual_inference": [
+        {
+          "aspect": "food",
+          "status": "PASS",
+          "predicted_class": "positive",
+          "softmax_is_calibrated": false
+        },
+        {
+          "aspect": "service",
+          "status": "PASS",
+          "predicted_class": "negative",
+          "softmax_is_calibrated": false
+        }
+      ],
+      "ate_predictions_passed_to_atsc": false,
+      "gold_test_data_used": false,
+      "trained_weights_updated": false
+    }
+  },
+  "findings": [
+    {
+      "level": "RISK",
+      "code": "TOKENIZATION_DISTRIBUTION_SHIFT",
+      "detail": "ATE inference uses regex word/punctuation splitting of raw text; training used source Tokens. ATSC training used space-joined source Tokens, but runtime can receive raw punctuation/whitespace. The exact same original review must be passed to both modules, without normalizing/rebuilding it."
+    },
+    {
+      "level": "RISK",
+      "code": "TOKEN_BUDGET_MISMATCH",
+      "detail": "ATE accepts up to 128 model tokens; ATSC uses a 128-token review+target pair including 2 extra markers. An ATE-accepted review can still exceed the ATSC budget; do not truncate or silently drop an aspect."
+    },
+    {
+      "level": "RISK",
+      "code": "MODEL_DOMAIN_LIMITATION",
+      "detail": "Separate gold-aspect ATSC test metrics cannot be used as end-to-end ATE->ATSC performance; no pipeline performance was measured in this audit."
+    },
+    {
+      "level": "INFO",
+      "code": "PYTHON_OFFSETS",
+      "detail": "Both Python modules use Unicode code point indexes, not UTF-8 byte offsets or JavaScript UTF-16 indices."
+    },
+    {
+      "level": "INFO",
+      "code": "MODEL_INSTANCES",
+      "detail": "ATE and ATSC require different task heads; load each model once and keep raw review unchanged."
+    },
+    {
+      "level": "RISK",
+      "code": "TOKEN_BUDGET_DIVERGENCE_REPRODUCED",
+      "detail": "See tokenizers.budget_divergence_cases: ATE fits but ATSC would refuse."
+    }
+  ],
+  "next_step": "Design offset-preserving adapter and overflow policy before implementing Stage 4 pipeline"
+}

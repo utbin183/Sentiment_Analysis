@@ -1,0 +1,17 @@
+{
+  "review": "The pizza was tasty, but the service was slow.",
+  "aspects": [
+    {
+      "text": "pizza",
+      "start": 4,
+      "end": 9,
+      "confidence": 0.998753
+    },
+    {
+      "text": "service",
+      "start": 29,
+      "end": 36,
+      "confidence": 0.998791
+    }
+  ]
+}

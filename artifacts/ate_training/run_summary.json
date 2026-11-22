@@ -1,0 +1,84 @@
+{
+  "step": "2.2",
+  "training_performed": true,
+  "dataset": "thainq107/abte-restaurants",
+  "preprocessing_seed": 42,
+  "training_seed": 42,
+  "model": "distilbert/distilbert-base-uncased",
+  "train_examples": 1783,
+  "validation_examples": 198,
+  "test_used": false,
+  "validation_check": {
+    "split_counts": {
+      "train": 1783,
+      "validation": 198
+    },
+    "train_validation_review_overlap": 0,
+    "aligned_label_distribution": {
+      "train": {
+        "O": 29256,
+        "B-Term": 3229,
+        "I-Term": 2496
+      },
+      "validation": {
+        "O": 3278,
+        "B-Term": 369,
+        "I-Term": 358
+      }
+    }
+  },
+  "metric_definition": "micro exact aspect-span P/R/F1 over original WORD positions; illegal predicted I starts a new span",
+  "training_config": {
+    "output_dir": "artifacts\\ate_training\\checkpoints",
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "logging_strategy": "epoch",
+    "learning_rate": 2e-05,
+    "per_device_train_batch_size": 4,
+    "per_device_eval_batch_size": 8,
+    "num_train_epochs": 8,
+    "weight_decay": 0.01,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_span_f1",
+    "greater_is_better": true,
+    "save_total_limit": 2,
+    "seed": 42,
+    "data_seed": 42,
+    "fp16": false,
+    "report_to": "none",
+    "dataloader_num_workers": 0,
+    "save_safetensors": true,
+    "optim": "adamw_torch"
+  },
+  "early_stopping_patience": 2,
+  "best_checkpoint": "artifacts\\ate_training\\checkpoints\\checkpoint-2230",
+  "best_validation_span_f1": 0.8264248704663212,
+  "train_result_metrics": {
+    "train_runtime": 3591.7255,
+    "train_samples_per_second": 3.971,
+    "train_steps_per_second": 0.993,
+    "total_flos": 106663342743900.0,
+    "train_loss": 0.049637520794376666,
+    "epoch": 7.0
+  },
+  "best_model_validation_metrics": {
+    "eval_loss": 0.3205787241458893,
+    "eval_span_precision": 0.7915632754342432,
+    "eval_span_recall": 0.8644986449864499,
+    "eval_span_f1": 0.8264248704663212,
+    "eval_span_tp": 319,
+    "eval_span_fp": 84,
+    "eval_span_fn": 50,
+    "eval_runtime": 8.7244,
+    "eval_samples_per_second": 22.695,
+    "eval_steps_per_second": 2.866,
+    "epoch": 7.0
+  },
+  "versions": {
+    "torch": "2.7.1+cu118",
+    "transformers": "4.57.6",
+    "datasets": "4.8.5",
+    "accelerate": "1.15.0"
+  },
+  "saved_model_dir": "artifacts\\ate_training\\best_model"
+}

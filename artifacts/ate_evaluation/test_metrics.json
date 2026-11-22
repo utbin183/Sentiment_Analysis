@@ -1,0 +1,43 @@
+{
+  "step": "2.3",
+  "status": "TEST EVALUATION FINISHED",
+  "evaluated_at_utc": "2026-11-18T13:38:39+00:00",
+  "model": "distilbert/distilbert-base-uncased",
+  "model_dir": "artifacts\\ate_training\\best_model",
+  "checkpoint_selected_before_test": "artifacts\\ate_training\\checkpoints\\checkpoint-2230",
+  "checkpoint_selection_metric": "eval_span_f1",
+  "best_validation_span_f1_prior_to_test": 0.8264248704663212,
+  "dataset": "thainq107/abte-restaurants",
+  "split_evaluated": "test",
+  "test_examples": 601,
+  "leakage_validation": {
+    "test_examples": 601,
+    "gold_aspect_count": 1119,
+    "test_review_overlap_with_train_validation": 0
+  },
+  "metric_definition": "micro exact-match aspect spans over ORIGINAL word indices; (start,end) half-open, matched within each review; a predicted I-Term without preceding B-Term begins a new span",
+  "test_metrics": {
+    "span_precision": 0.8417935702199661,
+    "span_recall": 0.8891867739052726,
+    "span_f1": 0.8648413733159497,
+    "span_tp": 995,
+    "span_fp": 187,
+    "span_fn": 124
+  },
+  "error_analysis_counts": {
+    "test_reviews_with_any_span_error": 157,
+    "test_reviews_with_false_positive": 135,
+    "test_reviews_with_missed_gold": 100,
+    "stored_error_examples": 25
+  },
+  "inference_batch_size": 8,
+  "inference_device": "cpu",
+  "test_used": true,
+  "model_trained_during_evaluation": false,
+  "atsc_performed": false,
+  "library_versions": {
+    "torch": "2.7.1+cu118",
+    "transformers": "4.57.6",
+    "datasets": "4.8.5"
+  }
+}

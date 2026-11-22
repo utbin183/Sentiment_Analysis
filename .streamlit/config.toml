@@ -1,0 +1,9 @@
+# Step 5.2: opaque dark theme, consistent with the Streamlit CSS in app.py.
+# No telemetry/server/upload changes are made in this config.
+[theme]
+base = "dark"
+primaryColor = "#4DD298"
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#181E29"
+textColor = "#F4F7FC"
+font = "sans serif"

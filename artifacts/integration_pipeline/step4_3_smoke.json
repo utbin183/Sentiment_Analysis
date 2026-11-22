@@ -1,0 +1,70 @@
+{
+  "phase": "4.3",
+  "review": "The food was delicious, but the service was terrible.",
+  "review_modified": false,
+  "offset_contract": "python_unicode_codepoints_half_open",
+  "max_atsc_tokens": 128,
+  "overflow_policy": "per_aspect_structured_error_no_truncation",
+  "aspects": [
+    {
+      "index": 0,
+      "status": "CLASSIFIED",
+      "aspect": {
+        "text": "food",
+        "start": 4,
+        "end": 8,
+        "ate_confidence_uncalibrated": 0.998326
+      },
+      "token_budget": {
+        "used": 17,
+        "limit": 128,
+        "truncated": false
+      },
+      "sentiment": "positive",
+      "label_id": 2,
+      "probabilities_softmax_uncalibrated": {
+        "negative": 0.0011147849727422,
+        "neutral": 0.001971767283976078,
+        "positive": 0.9969134330749512
+      },
+      "predicted_probability_uncalibrated": 0.9969134330749512,
+      "error": null
+    },
+    {
+      "index": 1,
+      "status": "CLASSIFIED",
+      "aspect": {
+        "text": "service",
+        "start": 32,
+        "end": 39,
+        "ate_confidence_uncalibrated": 0.998984
+      },
+      "token_budget": {
+        "used": 17,
+        "limit": 128,
+        "truncated": false
+      },
+      "sentiment": "negative",
+      "label_id": 0,
+      "probabilities_softmax_uncalibrated": {
+        "negative": 0.9898102283477783,
+        "neutral": 0.007303453981876373,
+        "positive": 0.0028863055631518364
+      },
+      "predicted_probability_uncalibrated": 0.9898102283477783,
+      "error": null
+    }
+  ],
+  "ate_extraction_performed": true,
+  "atsc_predictions_performed": true,
+  "training_performed": false,
+  "gold_test_evaluation_performed": false,
+  "weights_modified": false,
+  "status": "COMPLETE",
+  "summary": {
+    "extracted": 2,
+    "classified": 2,
+    "errors": 0,
+    "global_errors": 0
+  }
+}

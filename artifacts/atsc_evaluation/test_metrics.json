@@ -1,0 +1,64 @@
+{
+  "step": "3.4",
+  "status": "FINAL TEST EVALUATED",
+  "dataset": "thainq107/abte-restaurants",
+  "model": "distilbert/distilbert-base-uncased",
+  "split": "test",
+  "test_count": 1119,
+  "selected_checkpoint": "checkpoint-1616",
+  "best_validation_macro_f1_FOR_CONTEXT_ONLY": 0.7190104517435237,
+  "checkpoint_weight_sha256": "7be792d95e74916d6825487943921fcba0e2ed1946ba1898b6c50622e8a3c3ca",
+  "checkpoint_selection_based_on_test": false,
+  "training_performed": false,
+  "model_weights_modified": false,
+  "device": "cpu",
+  "batch_size": 8,
+  "confusion_matrix": [
+    [
+      167,
+      15,
+      14
+    ],
+    [
+      35,
+      98,
+      63
+    ],
+    [
+      28,
+      34,
+      665
+    ]
+  ],
+  "confusion_matrix_rows": "gold",
+  "confusion_matrix_columns": "predicted",
+  "per_class": {
+    "negative": {
+      "precision": 0.7260869565217392,
+      "recall": 0.8520408163265306,
+      "f1": 0.7840375586854461,
+      "support": 196,
+      "predicted": 230
+    },
+    "neutral": {
+      "precision": 0.6666666666666666,
+      "recall": 0.5,
+      "f1": 0.5714285714285715,
+      "support": 196,
+      "predicted": 147
+    },
+    "positive": {
+      "precision": 0.8962264150943396,
+      "recall": 0.9147180192572214,
+      "f1": 0.9053778080326752,
+      "support": 727,
+      "predicted": 742
+    }
+  },
+  "total": 1119,
+  "correct": 930,
+  "errors": 189,
+  "accuracy": 0.8310991957104558,
+  "macro_f1": 0.7536146460488976,
+  "weighted_f1": 0.8256309454353014
+}

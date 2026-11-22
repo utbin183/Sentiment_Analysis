@@ -1,0 +1,26 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local environment and secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Temporary and damaged files
+*.log
+*.tmp
+*.corrupt
+
+# Large datasets not required for cloud inference
+artifacts/ate_preprocessing/
+artifacts/atsc_audit/
+artifacts/atsc_preprocessing/tokenized_splits/
+
+# Training checkpoints (keep best_model only)
+artifacts/ate_training/checkpoints/
+artifacts/atsc_training/checkpoints/

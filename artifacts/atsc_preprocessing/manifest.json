@@ -1,0 +1,126 @@
+{
+  "status": "PREPROCESSING FINISHED",
+  "source_audit": "artifacts\\atsc_audit\\audit_report.json",
+  "source_dataset": "thainq107/abte-restaurants",
+  "gold_pairs_only": true,
+  "ate_predictions_used": false,
+  "tokenizer_name": "distilbert/distilbert-base-uncased",
+  "tokenizer_source": "artifacts\\ate_preprocessing\\tokenizer",
+  "input_format": "[CLS] review with [unused1] target [unused2] [SEP] aspect [SEP]",
+  "target_disambiguation": "span_markers_from_gold_start_end_offsets",
+  "target_markers": {
+    "[unused1]": 2,
+    "[unused2]": 3
+  },
+  "vocabulary_resized": false,
+  "max_length": 128,
+  "truncation": false,
+  "padding": "deferred_to_training_collator",
+  "label_mapping": {
+    "0": "negative",
+    "1": "neutral",
+    "2": "positive"
+  },
+  "pair_counts": {
+    "train": 3229,
+    "validation": 369,
+    "test": 1119
+  },
+  "review_counts": {
+    "train": 1783,
+    "validation": 198,
+    "test": 601
+  },
+  "review_overlap_between_splits": 0,
+  "encoded_token_lengths": {
+    "train": {
+      "rows": 3229,
+      "over_max_length": 0,
+      "max_observed_length": 107,
+      "min_observed_length": 9,
+      "mean_token_length": 29.7829
+    },
+    "validation": {
+      "rows": 369,
+      "over_max_length": 0,
+      "max_observed_length": 82,
+      "min_observed_length": 9,
+      "mean_token_length": 31.2087
+    },
+    "test": {
+      "rows": 1119,
+      "over_max_length": 0,
+      "max_observed_length": 89,
+      "min_observed_length": 11,
+      "mean_token_length": 29.6416
+    }
+  },
+  "imbalance": {
+    "class_counts": {
+      "train": {
+        "negative": 724,
+        "neutral": 552,
+        "positive": 1953
+      },
+      "validation": {
+        "negative": 83,
+        "neutral": 79,
+        "positive": 207
+      },
+      "test": {
+        "negative": 196,
+        "neutral": 196,
+        "positive": 727
+      }
+    },
+    "class_proportions": {
+      "train": {
+        "negative": 0.224218,
+        "neutral": 0.170951,
+        "positive": 0.604831
+      },
+      "validation": {
+        "negative": 0.224932,
+        "neutral": 0.214092,
+        "positive": 0.560976
+      },
+      "test": {
+        "negative": 0.175156,
+        "neutral": 0.175156,
+        "positive": 0.649687
+      }
+    },
+    "train_max_to_min_nonempty_class_ratio": 3.538,
+    "suggested_train_balanced_weights_NOT_APPLIED": {
+      "negative": 1.486648,
+      "neutral": 1.949879,
+      "positive": 0.551118
+    },
+    "weights_note": "Descriptive suggestion only; no loss weighting or training performed."
+  },
+  "repeated_target_occurrences": {
+    "train": {
+      "repeated_aspect_text_groups": 26,
+      "repeated_aspect_text_pairs": 53,
+      "conflicting_sentiment_repeated_text_groups": 8,
+      "conflicting_sentiment_repeated_text_pairs": 16
+    },
+    "validation": {
+      "repeated_aspect_text_groups": 6,
+      "repeated_aspect_text_pairs": 14,
+      "conflicting_sentiment_repeated_text_groups": 2,
+      "conflicting_sentiment_repeated_text_pairs": 6
+    },
+    "test": {
+      "repeated_aspect_text_groups": 3,
+      "repeated_aspect_text_pairs": 6,
+      "conflicting_sentiment_repeated_text_groups": 0,
+      "conflicting_sentiment_repeated_text_pairs": 0
+    }
+  },
+  "held_out_test_kept_separate": true,
+  "training_performed": false,
+  "model_weights_loaded": false,
+  "model_predictions": null,
+  "model_metrics": null
+}

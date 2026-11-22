@@ -1,0 +1,62 @@
+{
+  "step": "4.2",
+  "status": "READY",
+  "review": "The food was delicious, but the service was terrible.",
+  "offset_contract": "python_unicode_codepoints_half_open",
+  "review_modified": false,
+  "atsc_input_format": "[CLS] review with [unused1] target [unused2] [SEP] aspect [SEP]",
+  "max_atsc_tokens": 128,
+  "overflow_policy": "per_aspect_structured_error_no_truncation",
+  "summary": {
+    "input_aspects": 2,
+    "ready": 2,
+    "errors": 0
+  },
+  "aspects": [
+    {
+      "index": 0,
+      "status": "READY_FOR_ATSC",
+      "aspect": {
+        "text": "food",
+        "start": 4,
+        "end": 8,
+        "ate_confidence_uncalibrated": 0.998326
+      },
+      "atsc_input": {
+        "aspect": "food",
+        "start": 4,
+        "end": 8
+      },
+      "token_budget": {
+        "used": 17,
+        "limit": 128,
+        "truncated": false
+      }
+    },
+    {
+      "index": 1,
+      "status": "READY_FOR_ATSC",
+      "aspect": {
+        "text": "service",
+        "start": 32,
+        "end": 39,
+        "ate_confidence_uncalibrated": 0.998984
+      },
+      "atsc_input": {
+        "aspect": "service",
+        "start": 32,
+        "end": 39
+      },
+      "token_budget": {
+        "used": 17,
+        "limit": 128,
+        "truncated": false
+      }
+    }
+  ],
+  "ate_extraction_performed": false,
+  "atsc_predictions_performed": false,
+  "training_performed": false,
+  "gold_test_evaluation_performed": false,
+  "pipeline_created": false
+}

@@ -1,0 +1,20 @@
+{
+  "NOTE": "SYNTHETIC test fixture; predictions are from deterministic StubModel, NOT trained DistilBERT",
+  "example_output": {
+    "review": "The food was delicious, but the service was terrible.",
+    "aspects": [
+      {
+        "text": "food",
+        "start": 4,
+        "end": 8,
+        "confidence": 0.999909
+      },
+      {
+        "text": "service",
+        "start": 32,
+        "end": 39,
+        "confidence": 0.999909
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "n_errors": 189,
+  "by_gold_to_predicted": {
+    "negative -> neutral": 15,
+    "negative -> positive": 14,
+    "neutral -> negative": 35,
+    "neutral -> positive": 63,
+    "positive -> negative": 28,
+    "positive -> neutral": 34
+  },
+  "note": "Softmax probabilities are NOT calibrated confidence estimates."
+}
